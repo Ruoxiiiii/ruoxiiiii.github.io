@@ -16,6 +16,7 @@ body {
     line-height: 1.6;
     color: var(--text);
     background: var(--bg);
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12,2 15,10 24,10 17,15 19,24 12,19 5,24 7,15 0,10 9,10" fill="%23333" /></svg>') 9 9, auto;
 }
 
 /* Navigation */
@@ -221,9 +222,6 @@ h1 {
     transition: opacity 0.3s ease;
 }
 
-.gallery img:hover {
-    cursor: pointer;
-}
 
 @media (max-width: 1024px) {
     .gallery img {
