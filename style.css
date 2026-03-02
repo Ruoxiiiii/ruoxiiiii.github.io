@@ -1,0 +1,61 @@
+/* Project Hub Styles */
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 50px;
+}
+
+.project-list li {
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+.project-list li:hover {
+    padding-left: 10px;
+    border-color: #111;
+}
+
+.project-list a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.5rem;
+    display: block;
+}
+
+.project-list a:hover {
+    color: var(--secondary);
+}
+
+/* 1. Texture Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/stardust.png');
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* 2. Custom Star Cursor */
+* { cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="gold"><path d="M12 1.75l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.26L12 1.75z"/></svg>'), auto; }
+
+/* 3. Lightbox Styling */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    cursor: zoom-out;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
