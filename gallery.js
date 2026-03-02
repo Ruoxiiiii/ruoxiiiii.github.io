@@ -1,114 +1,109 @@
-// Lightbox Gallery
+// Gallery with View Toggle
 document.addEventListener('DOMContentLoaded', function() {
-    const gallery = document.querySelector('.gallery');
-    if (!gallery) return;
+    const sections = document.querySelectorAll('.project-section');
 
-    const images = Array.from(gallery.querySelectorAll('img'));
-    let currentIndex = 0;
+    sections.forEach(section => {
+        const gallery = section.querySelector('.gallery');
+        const viewToggle = section.querySelector('.view-toggle');
+        if (!gallery || !viewToggle) return;
 
-    // Create lightbox elements
-    const lightbox = document.createElement('div');
-    lightbox.className = 'lightbox';
-    lightbox.innerHTML = `
-        <div class="lightbox-close">&times;</div>
-        <div class="lightbox-main">
-            <div class="lightbox-nav lightbox-prev">&lsaquo;</div>
-            <img src="" alt="">
-            <div class="lightbox-nav lightbox-next">&rsaquo;</div>
-        </div>
-        <div class="lightbox-thumbnails"></div>
-    `;
-    document.body.appendChild(lightbox);
+        const images = Array.from(gallery.querySelectorAll('img'));
+        let currentIndex = 0;
+        let isSingleView = false;
 
-    const mainImg = lightbox.querySelector('.lightbox-main img');
-    const thumbnailsContainer = lightbox.querySelector('.lightbox-thumbnails');
-    const closeBtn = lightbox.querySelector('.lightbox-close');
-    const prevBtn = lightbox.querySelector('.lightbox-prev');
-    const nextBtn = lightbox.querySelector('.lightbox-next');
+        // Create single view elements
+        const mainContainer = document.createElement('div');
+        mainContainer.className = 'main-image-container';
 
-    // Create thumbnails
-    images.forEach((img, index) => {
-        const thumb = document.createElement('img');
-        thumb.src = img.src;
-        thumb.alt = img.alt;
-        thumb.addEventListener('click', () => showImage(index));
-        thumbnailsContainer.appendChild(thumb);
-    });
+        const prevBtn = document.createElement('button');
+        prevBtn.className = 'nav-arrow nav-prev';
+        prevBtn.innerHTML = '‹';
+        prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
 
-    const thumbnails = thumbnailsContainer.querySelectorAll('img');
+        const mainImage = document.createElement('img');
+        mainImage.className = 'main-image';
 
-    function showImage(index) {
-        currentIndex = index;
-        mainImg.src = images[index].src;
-        mainImg.alt = images[index].alt;
+        const nextBtn = document.createElement('button');
+        nextBtn.className = 'nav-arrow nav-next';
+        nextBtn.innerHTML = '›';
+        nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
 
-        // Update active thumbnail
-        thumbnails.forEach((thumb, i) => {
-            thumb.classList.toggle('active', i === index);
+        mainContainer.appendChild(prevBtn);
+        mainContainer.appendChild(mainImage);
+        mainContainer.appendChild(nextBtn);
+
+        const thumbnailStrip = document.createElement('div');
+        thumbnailStrip.className = 'thumbnail-strip';
+
+        images.forEach((img, index) => {
+            const thumb = document.createElement('img');
+            thumb.src = img.src;
+            thumb.alt = img.alt;
+            thumb.addEventListener('click', () => showImage(index));
+            thumbnailStrip.appendChild(thumb);
         });
 
-        // Scroll thumbnail into view
-        thumbnails[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
-    }
+        function showImage(index) {
+            // Loop around
+            if (index < 0) index = images.length - 1;
+            if (index >= images.length) index = 0;
 
-    function openLightbox(index) {
-        showImage(index);
-        lightbox.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    }
+            currentIndex = index;
+            mainImage.src = images[index].src;
+            mainImage.alt = images[index].alt;
 
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-    }
+            const thumbs = thumbnailStrip.querySelectorAll('img');
+            thumbs.forEach((thumb, i) => {
+                thumb.classList.toggle('active', i === index);
+            });
 
-    function nextImage() {
-        showImage((currentIndex + 1) % images.length);
-    }
-
-    function prevImage() {
-        showImage((currentIndex - 1 + images.length) % images.length);
-    }
-
-    // Event listeners
-    images.forEach((img, index) => {
-        img.addEventListener('click', () => openLightbox(index));
-    });
-
-    closeBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        closeLightbox();
-    });
-    prevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        prevImage();
-    });
-    nextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        nextImage();
-    });
-
-    // Close on background click (only on the lightbox overlay itself)
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
+            // Scroll thumbnail into view
+            thumbs[index].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
         }
-    });
 
-    // Also close when clicking the main image area background (not the image)
-    const lightboxMain = lightbox.querySelector('.lightbox-main');
-    lightboxMain.addEventListener('click', (e) => {
-        if (e.target === lightboxMain) {
-            closeLightbox();
+        function enterSingleView(index = 0) {
+            if (!isSingleView) {
+                isSingleView = true;
+                viewToggle.classList.add('active');
+                gallery.classList.add('single-view');
+                gallery.insertBefore(mainContainer, gallery.firstChild);
+                gallery.appendChild(thumbnailStrip);
+            }
+            showImage(index);
         }
-    });
 
-    // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
-        if (!lightbox.classList.contains('active')) return;
+        function exitSingleView() {
+            isSingleView = false;
+            viewToggle.classList.remove('active');
+            gallery.classList.remove('single-view');
+            mainContainer.remove();
+            thumbnailStrip.remove();
+        }
 
-        if (e.key === 'Escape') closeLightbox();
-        if (e.key === 'ArrowRight') nextImage();
-        if (e.key === 'ArrowLeft') prevImage();
+        function toggleView() {
+            if (isSingleView) {
+                exitSingleView();
+            } else {
+                enterSingleView(0);
+            }
+        }
+
+        viewToggle.addEventListener('click', toggleView);
+
+        // Click on grid image to enter single view
+        images.forEach((img, index) => {
+            img.addEventListener('click', () => {
+                if (!isSingleView) {
+                    enterSingleView(index);
+                }
+            });
+        });
+
+        // Keyboard navigation for single view
+        document.addEventListener('keydown', (e) => {
+            if (!isSingleView || !section.classList.contains('active')) return;
+            if (e.key === 'ArrowRight') showImage(currentIndex + 1);
+            if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
+        });
     });
 });

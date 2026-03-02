@@ -28,7 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     infoToggles.forEach(toggle => {
         toggle.addEventListener('click', function() {
-            const description = this.nextElementSibling;
+            const header = this.closest('.project-header');
+            const description = header.querySelector('.project-description');
             this.classList.toggle('active');
             description.classList.toggle('show');
         });
