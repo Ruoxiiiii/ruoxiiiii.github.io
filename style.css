@@ -89,6 +89,38 @@ h1 {
     margin-bottom: 20px;
 }
 
+.name-hover {
+    position: relative;
+    display: inline-block;
+    cursor: default;
+    text-decoration: none;
+}
+
+.name-hover span {
+    text-decoration: none;
+}
+
+.name-hover span:first-child {
+    margin-right: 10px;
+}
+
+.name-tone {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.85rem;
+    color: var(--secondary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    margin-top: 5px;
+}
+
+.name-hover:hover .name-tone {
+    opacity: 1;
+}
+
 .home-nav hr {
     border: none;
     border-top: 1px solid #ddd;
