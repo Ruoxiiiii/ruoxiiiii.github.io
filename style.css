@@ -46,6 +46,40 @@ body {
     gap: 30px;
 }
 
+/* Home Icon */
+.home-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    transition: all 0.25s ease;
+    cursor: pointer;
+}
+
+.home-icon:hover {
+    color: var(--text);
+    transform: scale(1.1);
+}
+
+.home-icon .icon-arrow {
+    display: none;
+}
+
+.home-icon .icon-house {
+    display: none;
+}
+
+.home-icon::before {
+    content: '←';
+    font-size: 1.4rem;
+    font-weight: 500;
+    transition: font-weight 0.25s ease;
+}
+
+.home-icon:hover::before {
+    font-weight: 700;
+}
+
 /* Container */
 .container, .content-wrapper {
     max-width: 1200px;
