@@ -177,6 +177,62 @@ h1 {
     color: var(--text);
 }
 
+/* About Page */
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    min-height: calc(100vh - 200px);
+    max-width: 1000px;
+}
+
+.about-photo {
+    flex-shrink: 0;
+}
+
+.about-photo img {
+    width: 350px;
+    height: auto;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.about-text {
+    flex: 1;
+    max-width: 650px;
+}
+
+.about-text h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+    margin-bottom: 40px;
+}
+
+.about-text .summary p {
+    font-size: 1.4rem;
+    line-height: 2;
+    color: var(--secondary);
+}
+
+@media (max-width: 900px) {
+    .about-container {
+        flex-direction: column;
+        gap: 50px;
+        text-align: center;
+        padding: 60px 30px;
+    }
+
+    .about-photo img {
+        width: 300px;
+    }
+
+    .about-text h1 {
+        font-size: 1.6rem;
+    }
+}
+
 .home-nav h1 {
     font-size: 1.5rem;
     font-weight: 400;
