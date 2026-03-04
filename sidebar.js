@@ -7,14 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
 
-            // Stop all YouTube videos by resetting iframe src
-            sections.forEach(s => {
-                const iframes = s.querySelectorAll('iframe');
-                iframes.forEach(iframe => {
-                    const src = iframe.src;
-                    iframe.src = '';
-                    iframe.src = src;
-                });
+            // Stop all YouTube videos
+            const allIframes = document.querySelectorAll('iframe');
+            allIframes.forEach(iframe => {
+                if (iframe.src.includes('youtube')) {
+                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                }
             });
 
             // Get target section
