@@ -264,6 +264,30 @@ h1 {
     margin-top: 40px;
 }
 
+/* Digital page - visible description */
+.digital-description {
+    max-width: 600px;
+    margin-bottom: 30px;
+}
+
+.digital-description p {
+    color: var(--secondary);
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.digital-description p:last-child {
+    margin-bottom: 0;
+}
+
+/* Smaller video container */
+.video-container.video-small {
+    max-width: 800px;
+    padding-bottom: 45%;
+    margin-top: 20px;
+}
+
 /* Lightbox */
 .lightbox {
     position: fixed;
