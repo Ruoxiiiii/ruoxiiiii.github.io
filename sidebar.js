@@ -7,6 +7,16 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
 
+            // Stop all YouTube videos by resetting iframe src
+            sections.forEach(s => {
+                const iframes = s.querySelectorAll('iframe');
+                iframes.forEach(iframe => {
+                    const src = iframe.src;
+                    iframe.src = '';
+                    iframe.src = src;
+                });
+            });
+
             // Get target section
             const targetId = this.getAttribute('data-section');
             const targetSection = document.getElementById(targetId);
