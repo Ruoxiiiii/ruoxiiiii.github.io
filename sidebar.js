@@ -7,11 +7,14 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function(e) {
             e.preventDefault();
 
-            // Stop all YouTube videos
+            // Stop all YouTube videos by removing and re-adding iframe
             const allIframes = document.querySelectorAll('iframe');
             allIframes.forEach(iframe => {
                 if (iframe.src.includes('youtube')) {
-                    iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+                    const parent = iframe.parentNode;
+                    const clone = iframe.cloneNode(true);
+                    parent.removeChild(iframe);
+                    parent.appendChild(clone);
                 }
             });
 
