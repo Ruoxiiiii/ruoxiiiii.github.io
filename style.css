@@ -215,6 +215,10 @@ h1 {
     letter-spacing: 0.15em;
 }
 
+.chinese-name {
+    font-family: "ZCOOL KuaiLe", system-ui;
+}
+
 .home-main {
     display: flex;
     align-items: center;
