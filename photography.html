@@ -7,27 +7,31 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="global-nav">
-        <a href="index.html" class="home-icon" title="Home">
-            <span class="icon-arrow">←</span>
-            <span class="icon-house"><span></span><span></span></span>
-        </a>
-        <div>
-            <a href="photography.html" class="nav-active">PHOTOGRAPHY</a>
-            <a href="digital.html">DIGITAL</a>
-            <a href="about.html">ABOUT</a>
-        </div>
-    </nav>
-
     <div class="split-layout">
         <aside class="sidebar">
             <ul class="sidebar-nav">
-                <li><a href="#threshold" class="sidebar-link active" data-section="threshold">At the Threshold</a></li>
-                <li><a href="#vital-drift" class="sidebar-link" data-section="vital-drift">Vital Drift</a></li>
-                <li><a href="#attention-rests" class="sidebar-link" data-section="attention-rests">Where Attention Rests</a></li>
-                <li><a href="#sky-meets" class="sidebar-link" data-section="sky-meets">Where the Sky Meets</a></li>
-                <li><a href="#held-over-time" class="sidebar-link" data-section="held-over-time">Held Over Time</a></li>
+                <li class="nav-section">
+                    <a href="photography.html" class="nav-title nav-active">PHOTOGRAPHY</a>
+                    <ul class="nav-subsection">
+                        <li><a href="#threshold" class="sidebar-link active" data-section="threshold">At the Threshold</a></li>
+                        <li><a href="#vital-drift" class="sidebar-link" data-section="vital-drift">Vital Drift</a></li>
+                        <li><a href="#attention-rests" class="sidebar-link" data-section="attention-rests">Where Attention Rests</a></li>
+                        <li><a href="#sky-meets" class="sidebar-link" data-section="sky-meets">Where the Sky Meets</a></li>
+                        <li><a href="#held-over-time" class="sidebar-link" data-section="held-over-time">Held Over Time</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <a href="digital.html" class="nav-title">DIGITAL</a>
+                    <ul class="nav-subsection">
+                        <li><a href="digital.html#being-over-time">Being, Over Time</a></li>
+                        <li><a href="digital.html#chlorophyll">Chlorophyll</a></li>
+                    </ul>
+                </li>
+                <li class="nav-section">
+                    <a href="about.html" class="nav-title">ABOUT</a>
+                </li>
             </ul>
+            <a href="index.html" class="sidebar-home">HOME</a>
         </aside>
 
         <main class="main-content">

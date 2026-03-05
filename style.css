@@ -47,6 +47,80 @@ body {
     gap: 30px;
 }
 
+/* Hierarchical Sidebar Navigation */
+.nav-section {
+    margin-bottom: 25px;
+}
+
+.nav-title {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: var(--text);
+    text-decoration: none;
+    margin-bottom: 10px;
+}
+
+.nav-title:hover {
+    color: var(--secondary);
+}
+
+.nav-title.nav-active {
+    color: var(--text);
+}
+
+.nav-subsection {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    padding-left: 15px;
+}
+
+.nav-subsection li {
+    margin-bottom: 6px;
+}
+
+.nav-subsection a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color 0.2s;
+}
+
+.nav-subsection a:hover {
+    color: var(--text);
+}
+
+.nav-subsection a.active,
+.nav-subsection .sidebar-link.active {
+    color: var(--text);
+    font-weight: 500;
+}
+
+.sidebar-home {
+    margin-top: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--secondary);
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    transition: color 0.2s;
+}
+
+.sidebar-home:hover {
+    color: var(--text);
+}
+
+.sidebar-home::before {
+    content: '←';
+    font-size: 1rem;
+}
+
 /* Home Icon */
 .home-icon {
     display: flex;
@@ -183,8 +257,8 @@ h1 {
     align-items: center;
     justify-content: center;
     gap: 80px;
-    min-height: calc(100vh - 200px);
-    max-width: 1000px;
+    min-height: 100%;
+    padding: 60px;
 }
 
 .about-photo {
@@ -538,14 +612,14 @@ h1 {
 /* Split Layout with Sidebar */
 .split-layout {
     display: flex;
-    height: calc(100vh - 61px);
+    height: 100vh;
     overflow: hidden;
 }
 
 .sidebar {
-    width: 220px;
+    width: 250px;
     flex-shrink: 0;
-    padding: 40px 30px 50px 40px;
+    padding: 50px 30px 50px 40px;
     overflow-y: auto;
 }
 
