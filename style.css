@@ -675,12 +675,13 @@ h1 {
 }
 
 .sidebar-link:hover {
+    font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     color: #805080;
 }
 
 .sidebar-link.active {
+    font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     color: #805080;
-    font-weight: 600;
 }
 
 .main-content {
