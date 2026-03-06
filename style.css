@@ -95,17 +95,17 @@ body {
     color: #805080;
     text-decoration: none;
     padding: 4px 0;
-    transition: color 0.2s;
 }
 
 .nav-subsection a:hover {
+    font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     color: #805080;
 }
 
 .nav-subsection a.active,
 .nav-subsection .sidebar-link.active {
+    font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     color: #805080;
-    font-weight: 500;
 }
 
 .sidebar-home {
