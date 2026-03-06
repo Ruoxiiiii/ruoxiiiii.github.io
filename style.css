@@ -21,6 +21,16 @@
     box-sizing: border-box;
 }
 
+/* Force all links to use our colors, not browser defaults */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:visited {
+    color: inherit;
+}
+
 body {
     font-family: 'Noto Serif', serif;
     line-height: 1.6;
@@ -64,7 +74,7 @@ body {
 
 .nav-title {
     display: block;
-    font-family: "Bitcount Grid Double Ink", system-ui;
+    font-family: "Bitcount Grid Double Ink", "Courier New", monospace;
     font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 0.05em;
@@ -94,7 +104,7 @@ body {
 
 .nav-subsection a {
     display: block;
-    font-family: "Bitcount Prop Single Ink", system-ui;
+    font-family: "Bitcount Prop Single Ink", "Courier New", monospace;
     font-size: 0.95rem;
     color: var(--secondary);
     text-decoration: none;
@@ -117,7 +127,7 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-family: "Bitcount Grid Double Ink", system-ui;
+    font-family: "Bitcount Grid Double Ink", "Courier New", monospace;
     font-size: 1rem;
     color: var(--text);
     text-decoration: none;
@@ -215,7 +225,7 @@ h1 {
 }
 
 .home-content .name-hover {
-    font-family: "Bitcount Grid Double Ink", system-ui;
+    font-family: "Bitcount Grid Double Ink", "Courier New", monospace;
     font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: 0.15em;
@@ -262,7 +272,7 @@ h1 {
 .home-links a {
     text-decoration: none;
     color: var(--text);
-    font-family: "Bitcount Grid Double Ink", system-ui;
+    font-family: "Bitcount Grid Double Ink", "Courier New", monospace;
     font-size: 1.6rem;
     letter-spacing: 0.1em;
     font-weight: 400;
@@ -300,7 +310,7 @@ h1 {
 }
 
 .about-text h1 {
-    font-family: "Bitcount Grid Double Ink", system-ui;
+    font-family: "Bitcount Grid Double Ink", "Courier New", monospace;
     font-size: 2.5rem;
     font-weight: 400;
     letter-spacing: 0.1em;
@@ -486,7 +496,7 @@ h1 {
 }
 
 .digital-description .work-title {
-    font-family: "Bitcount Prop Double Ink", system-ui;
+    font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     font-size: 1.6rem;
     color: var(--text);
     vertical-align: baseline;
@@ -868,7 +878,7 @@ h1 {
 }
 
 .project-description .work-title {
-    font-family: "Bitcount Prop Double Ink", system-ui;
+    font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     font-size: 1.6rem;
     color: var(--text);
     vertical-align: baseline;
