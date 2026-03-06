@@ -10,8 +10,8 @@
 
 /* Base Styles */
 :root {
-    --text: #111;
-    --secondary: #666;
+    --text: #805080;
+    --secondary: #805080;
     --bg: #fff;
 }
 
@@ -22,21 +22,17 @@
 }
 
 /* Force all links to use our colors, not browser defaults */
-a {
-    color: inherit;
+a, a:visited, a:hover, a:active {
+    color: #805080;
     text-decoration: none;
-}
-
-a:visited {
-    color: inherit;
 }
 
 body {
     font-family: 'Noto Serif', serif;
     line-height: 1.6;
-    color: var(--text);
+    color: #805080;
     background: var(--bg);
-    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12,2 15,10 24,10 17,15 19,24 12,19 5,24 7,15 0,10 9,10" fill="%23333" /></svg>') 9 9, auto;
+    cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><polygon points="12,2 15,10 24,10 17,15 19,24 12,19 5,24 7,15 0,10 9,10" fill="%239060a0" /></svg>') 9 9, auto;
 }
 
 /* Navigation */
@@ -49,13 +45,13 @@ body {
 
 .global-nav a, .main-nav a {
     text-decoration: none;
-    color: var(--text);
+    color: #805080;
     font-size: 0.9rem;
     letter-spacing: 0.05em;
 }
 
 .global-nav a:hover, .main-nav a:hover {
-    color: var(--secondary);
+    color: #805080;
 }
 
 .global-nav a.nav-active, .main-nav a.nav-active {
@@ -78,17 +74,17 @@ body {
     font-size: 1.2rem;
     font-weight: 400;
     letter-spacing: 0.05em;
-    color: var(--text);
+    color: #805080;
     text-decoration: none;
     margin-bottom: 10px;
 }
 
 .nav-title:hover {
-    color: var(--secondary);
+    color: #805080;
 }
 
 .nav-title.nav-active {
-    color: var(--text);
+    color: #805080;
 }
 
 .nav-subsection {
@@ -106,19 +102,19 @@ body {
     display: block;
     font-family: "Bitcount Prop Single Ink", "Courier New", monospace;
     font-size: 0.95rem;
-    color: var(--secondary);
+    color: #805080;
     text-decoration: none;
     padding: 4px 0;
     transition: color 0.2s;
 }
 
 .nav-subsection a:hover {
-    color: var(--text);
+    color: #805080;
 }
 
 .nav-subsection a.active,
 .nav-subsection .sidebar-link.active {
-    color: var(--text);
+    color: #805080;
     font-weight: 500;
 }
 
@@ -129,14 +125,14 @@ body {
     gap: 8px;
     font-family: "Bitcount Grid Double Ink", "Courier New", monospace;
     font-size: 1rem;
-    color: var(--text);
+    color: #805080;
     text-decoration: none;
     letter-spacing: 0.05em;
     transition: color 0.2s;
 }
 
 .sidebar-home:hover {
-    color: var(--secondary);
+    color: #805080;
 }
 
 .sidebar-home::before {
@@ -150,13 +146,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #999;
+    color: #805080;
     transition: all 0.25s ease;
     cursor: pointer;
 }
 
 .home-icon:hover {
-    color: var(--text);
+    color: #805080;
     transform: scale(1.1);
 }
 
@@ -200,7 +196,7 @@ h1 {
 }
 
 .summary p, .summary-text p {
-    color: var(--secondary);
+    color: #805080;
     font-size: 1.1rem;
     line-height: 1.8;
 }
@@ -271,7 +267,7 @@ h1 {
 
 .home-links a {
     text-decoration: none;
-    color: var(--text);
+    color: #805080;
     font-family: "Bitcount Grid Double Ink", "Courier New", monospace;
     font-size: 1.6rem;
     letter-spacing: 0.1em;
@@ -280,7 +276,7 @@ h1 {
 }
 
 .home-links a:hover {
-    color: var(--secondary);
+    color: #805080;
 }
 
 /* About Page */
@@ -320,7 +316,7 @@ h1 {
 .about-text .summary p {
     font-size: 1.4rem;
     line-height: 2;
-    color: var(--secondary);
+    color: #805080;
 }
 
 @media (max-width: 900px) {
@@ -368,7 +364,7 @@ h1 {
     left: 50%;
     transform: translateX(-50%);
     font-size: 0.85rem;
-    color: var(--secondary);
+    color: #805080;
     opacity: 0;
     transition: opacity 0.3s ease;
     white-space: nowrap;
@@ -391,13 +387,13 @@ h1 {
 
 .home-nav a {
     text-decoration: none;
-    color: var(--text);
+    color: #805080;
     font-size: 0.9rem;
     letter-spacing: 0.1em;
 }
 
 .home-nav a:hover {
-    color: var(--secondary);
+    color: #805080;
 }
 
 /* Project List */
@@ -415,18 +411,18 @@ h1 {
 
 .project-list li:hover {
     padding-left: 10px;
-    border-color: #111;
+    border-color: #805080;
 }
 
 .project-list a {
     text-decoration: none;
-    color: var(--text);
+    color: #805080;
     font-size: 1.5rem;
     display: block;
 }
 
 .project-list a:hover {
-    color: var(--secondary);
+    color: #805080;
 }
 
 /* Gallery - Uniform Grid */
@@ -485,7 +481,7 @@ h1 {
     background: #f5f5f5;
     padding: 60px 40px;
     text-align: center;
-    color: var(--secondary);
+    color: #805080;
     margin-top: 40px;
 }
 
@@ -498,12 +494,12 @@ h1 {
 .digital-description .work-title {
     font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     font-size: 1.6rem;
-    color: var(--text);
+    color: #805080;
     vertical-align: baseline;
 }
 
 .digital-description p {
-    color: var(--secondary);
+    color: #805080;
     font-size: 1.05rem;
     line-height: 30px;
     margin-bottom: 20px;
@@ -580,7 +576,7 @@ h1 {
     right: 30px;
     font-size: 2rem;
     cursor: pointer;
-    color: #333;
+    color: #805080;
     z-index: 10001;
     width: 40px;
     height: 40px;
@@ -590,13 +586,13 @@ h1 {
 }
 
 .lightbox-close:hover {
-    color: #000;
+    color: #805080;
 }
 
 .lightbox-nav {
     font-size: 2.5rem;
     cursor: pointer;
-    color: #555;
+    color: #805080;
     padding: 20px;
     user-select: none;
     z-index: 10002;
@@ -608,7 +604,7 @@ h1 {
 }
 
 .lightbox-nav:hover {
-    color: #000;
+    color: #805080;
 }
 
 .lightbox-prev {
@@ -678,7 +674,7 @@ h1 {
     display: block;
     padding: 8px 0;
     text-decoration: none;
-    color: var(--secondary);
+    color: #805080;
     font-size: 0.9rem;
     transition: all 0.2s;
     white-space: nowrap;
@@ -689,11 +685,11 @@ h1 {
 }
 
 .sidebar-link:hover {
-    color: var(--text);
+    color: #805080;
 }
 
 .sidebar-link.active {
-    color: var(--text);
+    color: #805080;
     font-weight: 600;
 }
 
@@ -730,10 +726,10 @@ h1 {
 .info-toggle {
     width: 30px;
     height: 30px;
-    border: 2.5px solid #999;
+    border: 2.5px solid #805080;
     border-radius: 50%;
     background: transparent;
-    color: #999;
+    color: #805080;
     font-size: 15px;
     cursor: pointer;
     transition: all 0.25s ease;
@@ -796,15 +792,15 @@ h1 {
 
 .view-toggle:hover,
 .info-toggle:hover {
-    border-color: var(--text);
-    color: var(--text);
+    border-color: #805080;
+    color: #805080;
     transform: scale(1.1);
 }
 
 .view-toggle.active,
 .info-toggle.active {
-    background: var(--text);
-    border-color: var(--text);
+    background: #805080;
+    border-color: #805080;
     color: #fff;
 }
 
@@ -860,14 +856,14 @@ h1 {
     background: transparent;
     border: none;
     font-size: 3rem;
-    color: #999;
+    color: #805080;
     cursor: pointer;
     padding: 0 20px;
     transition: color 0.2s;
 }
 
 .nav-arrow:hover {
-    color: var(--text);
+    color: #805080;
 }
 
 .project-description {
@@ -880,12 +876,12 @@ h1 {
 .project-description .work-title {
     font-family: "Bitcount Prop Double Ink", "Courier New", monospace;
     font-size: 1.6rem;
-    color: var(--text);
+    color: #805080;
     vertical-align: baseline;
 }
 
 .project-description p {
-    color: var(--secondary);
+    color: #805080;
     font-size: 1.05rem;
     line-height: 30px;
     margin-bottom: 10px;
@@ -925,8 +921,8 @@ h1 {
     }
 
     .sidebar-link.active {
-        border-color: var(--text);
-        background: var(--text);
+        border-color: #805080;
+        background: #805080;
         color: #fff;
     }
 

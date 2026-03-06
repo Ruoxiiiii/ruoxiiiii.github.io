@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             ctx.lineTo(p1.x - px * width / 2, p1.y - py * width / 2);
             ctx.closePath();
 
-            ctx.fillStyle = `rgba(60, 60, 60, ${opacity})`;
+            ctx.fillStyle = `rgba(128, 80, 128, ${opacity})`;
             ctx.fill();
         }
 
@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (points.length > 2) {
             ctx.beginPath();
             ctx.arc(points[0].x, points[0].y, 2.5, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(60, 60, 60, 0.5)';
+            ctx.fillStyle = 'rgba(128, 80, 128, 0.5)';
             ctx.fill();
         }
 
