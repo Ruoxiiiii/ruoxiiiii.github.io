@@ -475,15 +475,15 @@ h1 {
 
 .digital-description .work-title {
     font-family: "Bitcount Prop Double Ink", system-ui;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--text);
     vertical-align: baseline;
 }
 
 .digital-description p {
     color: var(--secondary);
-    font-size: 1rem;
-    line-height: 36px;
+    font-size: 1.05rem;
+    line-height: 30px;
     margin-bottom: 20px;
 }
 
@@ -857,15 +857,15 @@ h1 {
 
 .project-description .work-title {
     font-family: "Bitcount Prop Double Ink", system-ui;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: var(--text);
     vertical-align: baseline;
 }
 
 .project-description p {
     color: var(--secondary);
-    font-size: 1rem;
-    line-height: 36px;
+    font-size: 1.05rem;
+    line-height: 30px;
     margin-bottom: 10px;
 }
 
