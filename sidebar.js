@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('data-section');
             const targetSection = document.getElementById(targetId);
 
+            // Update URL with hash for unique project URLs
+            history.pushState(null, '', '#' + targetId);
+
             // Reset any single-view galleries back to grid
             window.dispatchEvent(new CustomEvent('resetGalleryView'));
 
@@ -49,6 +52,24 @@ document.addEventListener('DOMContentLoaded', function() {
             // Scroll main content to top
             document.querySelector('.main-content').scrollTop = 0;
         });
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', function() {
+        if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            const targetSection = document.getElementById(targetId);
+            const targetLink = document.querySelector(`.sidebar-link[data-section="${targetId}"]`);
+
+            if (targetSection && targetLink) {
+                window.dispatchEvent(new CustomEvent('resetGalleryView'));
+                sidebarLinks.forEach(l => l.classList.remove('active'));
+                sections.forEach(s => s.classList.remove('active'));
+                targetLink.classList.add('active');
+                targetSection.classList.add('active');
+                document.querySelector('.main-content').scrollTop = 0;
+            }
+        }
     });
 
     // Info Toggle
