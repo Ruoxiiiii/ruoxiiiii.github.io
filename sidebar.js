@@ -36,6 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('data-section');
             const targetSection = document.getElementById(targetId);
 
+            // Reset any single-view galleries back to grid
+            window.dispatchEvent(new CustomEvent('resetGalleryView'));
+
             // Update active states
             sidebarLinks.forEach(l => l.classList.remove('active'));
             sections.forEach(s => s.classList.remove('active'));

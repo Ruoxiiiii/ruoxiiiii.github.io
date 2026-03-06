@@ -1,6 +1,19 @@
 // Gallery with View Toggle
 document.addEventListener('DOMContentLoaded', function() {
+    // Clean up any cached single-view state from browser cache FIRST
+    document.querySelectorAll('.gallery.single-view').forEach(gallery => {
+        gallery.classList.remove('single-view');
+        const mainContainer = gallery.querySelector('.main-image-container');
+        const thumbnailStrip = gallery.querySelector('.thumbnail-strip');
+        if (mainContainer) mainContainer.remove();
+        if (thumbnailStrip) thumbnailStrip.remove();
+    });
+    document.querySelectorAll('.view-toggle.active').forEach(btn => {
+        btn.classList.remove('active');
+    });
+
     const sections = document.querySelectorAll('.project-section');
+    const exitFunctions = [];
 
     sections.forEach(section => {
         const gallery = section.querySelector('.gallery');
@@ -76,9 +89,12 @@ document.addEventListener('DOMContentLoaded', function() {
             isSingleView = false;
             viewToggle.classList.remove('active');
             gallery.classList.remove('single-view');
-            mainContainer.remove();
-            thumbnailStrip.remove();
+            if (mainContainer.parentNode) mainContainer.remove();
+            if (thumbnailStrip.parentNode) thumbnailStrip.remove();
         }
+
+        // Store exit function for reset on page restore
+        exitFunctions.push(exitSingleView);
 
         function toggleView() {
             if (isSingleView) {
@@ -105,5 +121,16 @@ document.addEventListener('DOMContentLoaded', function() {
             if (e.key === 'ArrowRight') showImage(currentIndex + 1);
             if (e.key === 'ArrowLeft') showImage(currentIndex - 1);
         });
+    });
+
+    // Reset to grid view when navigating back to page
+    window.addEventListener('pageshow', function(event) {
+        // Always reset all galleries to grid view
+        exitFunctions.forEach(fn => fn());
+    });
+
+    // Reset when switching sections via sidebar
+    window.addEventListener('resetGalleryView', function() {
+        exitFunctions.forEach(fn => fn());
     });
 });
