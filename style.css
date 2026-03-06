@@ -1,13 +1,3 @@
-/* Custom Fonts */
-@font-face {
-    font-family: 'Smiley Sans';
-    src: url('assets/smiley_sans/SmileySans-Oblique.ttf.woff2') format('woff2'),
-         url('assets/smiley_sans/SmileySans-Oblique.ttf') format('truetype');
-    font-weight: normal;
-    font-style: oblique;
-    font-display: swap;
-}
-
 /* Base Styles */
 :root {
     --text: #805080;
@@ -234,7 +224,7 @@ h1 {
 }
 
 .chinese-name {
-    font-family: "Smiley Sans", system-ui;
+    font-family: system-ui, sans-serif;
     font-size: 2.3rem;
 }
 
